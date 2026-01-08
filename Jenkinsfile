@@ -15,7 +15,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'docker-credential') {
+                    withDockerRegistry(credentialsId: 'docker-credential', toolName: 'docker') {
                         sh "docker push shivaangata/adservice:latest "
                     }
                 }
