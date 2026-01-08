@@ -5,7 +5,7 @@ pipeline {
         stage('Build & Tag Docker Image') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'docker-credencial', toolName: 'docker') {
+                    withDockerRegistry(credentialsId: 'docker-credential', toolName: 'docker') {
                         sh "docker build -t shivaangata/shippingservice:latest ."
                     }
                 }
@@ -15,7 +15,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'docker-credencial', toolName: 'docker') {
+                    withDockerRegistry(credentialsId: 'docker-credential', toolName: 'docker') {
                         sh "docker push shivaangata/shippingservice:latest "
                     }
                 }
